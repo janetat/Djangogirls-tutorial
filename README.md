@@ -2,7 +2,7 @@
 Nice tutorial: https://tutorial.djangogirls.org
 
 # 遇到的问题
-## 部署时如何处理静态文件?
+## 如果手动配置，部署时如何处理静态文件?
 前提： ```python manage.py collectstatic```，
 然后用[whitenoise](http://whitenoise.evans.io/en/stable/django.html)这个middleware去寻找静态文件的路径(就不用在云平台上配置静态文件的路径)，这个做法兼容性强，省去了云平台的依赖性。
 ## 例子：
@@ -15,5 +15,11 @@ Nice tutorial: https://tutorial.djangogirls.org
 
 ![shot1](./screenshot/4.png)
 
-## 注意：要配置允许的主机的域名，否则不能在云平台上运行
+## 注意
+1. 要配置允许的主机的域名，否则不能在云平台上运行
 ![shot1](./screenshot/3.png)
+2. Python anywhere可以自动部署应用
+
+```
+pa_autoconfigure_django.py https://github.com/<your-github-username>/my-first-blog.git
+```
