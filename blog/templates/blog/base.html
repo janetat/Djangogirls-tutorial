@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+<head>
+    <title>Allen's blog</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+
+<body>
+
+<div class="text-center">
+    <h1><a href="/">Allen blog</a></h1>
+</div>
+
+<div class="content container">
+    <div class="row">
+        <div class="col-12">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

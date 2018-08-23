@@ -1,51 +1,13 @@
-{% load static %}
-<html>
-<head>
-    <title>Allen's blog</title>
-    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-</head>
-<body>
+{% extends 'blog/base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Allen blog</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-
-<div class="container">
-    <div class="text-center">
-        <h1>Welcome! My Friend!</h1>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-4">
-            {% for post in posts %}
-                <div class="post">
-                    <h1><a href="">{{ post.title }}</a></h1>
-                    <div>
-                        <p>published: {{ post.published_date }}</p>
-                    </div>
-                    <p>{{ post.text|linebreaksbr }}</p>
-                </div>
-            {% endfor %}
+{% block content %}
+    {% for post in posts %}
+        <div class="post" style="border: 1px solid">
+            <h1><a href="">{{ post.title }}</a></h1>
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-    </div>
-</div>
-
-</body>
-</html>
-
-
-</body>
-</html>
-
-
+    {% endfor %}
+{% endblock %}
