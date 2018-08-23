@@ -1,5 +1,7 @@
 # Djangogirls_tutorial
 Nice tutorial: https://tutorial.djangogirls.org
+user: root
+password: root
 
 # 遇到的问题
 ## 如果手动配置，部署时如何处理静态文件?
