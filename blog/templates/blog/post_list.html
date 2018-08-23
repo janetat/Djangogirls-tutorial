@@ -3,7 +3,9 @@
 {% block content %}
     {% for post in posts %}
         <div class="post" style="border: 1px solid">
-            <h1><a href="">{{ post.title }}</a></h1>
+{#        The post_detail part means that Django will be expecting a URL in blog/urls.py with name=post_detail#}
+{#        pk is short for primary key, which is a unique name for each record in a database. Because we didn't specify a primary key in our Post model, Django creates one for us (by default, a number that increases by one for each record, i.e. 1, 2, 3) and adds it as a field named pk to each of our posts#}
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <div class="date">
                 {{ post.published_date }}
             </div>
