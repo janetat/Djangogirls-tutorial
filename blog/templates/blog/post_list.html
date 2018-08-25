@@ -5,11 +5,17 @@
         <div class="post" style="border: 1px solid">
 {#        The post_detail part means that Django will be expecting a URL in blog/urls.py with name=post_detail#}
 {#        pk is short for primary key, which is a unique name for each record in a database. Because we didn't specify a primary key in our Post model, Django creates one for us (by default, a number that increases by one for each record, i.e. 1, 2, 3) and adds it as a field named pk to each of our posts#}
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <div>
+                <h1 style="display:inline-block"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-default" style="float:right" href="{% url 'post_edit' pk=post.pk %}"><span>Edit</span></a>
+                {% endif %}
+            </div>
             <div class="date">
                 {{ post.published_date }}
             </div>
             <p>{{ post.text|linebreaksbr }}</p>
+
         </div>
     {% endfor %}
 {% endblock %}
